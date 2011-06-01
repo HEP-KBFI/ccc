@@ -8,9 +8,10 @@ from pulp.constants import LpMinimize, LpStatus, LpInteger, LpContinuous
 
 # node parameters [price, 1year, 3year, reserved_price, RAM, CU, disk]
 # <type>_<size>_<model>
-vms = CSV_reader.parse_csv2('../../data/pricelist/aws_computation.csv')
-data = CSV_reader.parse_csv2('../../data/pricelist/aws_data.csv')
-storage = CSV_reader.parse_csv2('../../data/pricelist/aws_storage.csv')
+from os import path
+vms = CSV_reader.parse_csv2(path.join(path.dirname(__file__), 'pricelist', 'aws_computation.csv'))
+data = CSV_reader.parse_csv2(path.join(path.dirname(__file__), 'pricelist', 'aws_data.csv'))
+storage = CSV_reader.parse_csv2(path.join(path.dirname(__file__), 'pricelist', 'aws_storage.csv'))
 
 def get_storage_costs(dem_curve):
     """

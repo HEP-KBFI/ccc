@@ -4,7 +4,7 @@ Cloud cost calculator.
 === Overview ===
 
 Calculates storage, network and computational costs (using LP-model) for public clouds. 
-Supported clouds: AWS, Rackspace. Pricelists for services are in data/pricelist.
+Supported clouds: AWS, Rackspace.
 
 === License ===
 Copyright (c) 2011, HEP KBFI

@@ -11,6 +11,7 @@ setup(name='cloud-calculator',
       license='BSD (3-clause)',      
       package_dir = {'': 'src'},
       packages=['sitio', 'sitio.adapters', 'sitio.analyser', 'sitio.common', 'sitio.model'],
-      data_files = {'data/pricelist': ['data/pricelist/*.csv']},      
-      requires=['PuLP (==1.4.7)'],    
+      package_data = {'sitio.analyser': ['pricelist/*.csv']},
+                                    
+      requires=['PuLP (==1.4.7)'],
      )

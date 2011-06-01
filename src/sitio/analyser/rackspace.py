@@ -6,9 +6,10 @@ from sitio.adapters import CSV_reader
 from pulp.pulp import LpProblem, LpVariable, lpSum, value
 from pulp.constants import LpMinimize, LpContinuous, LpInteger
 
-vms = CSV_reader.parse_csv2('../../data/pricelist/rackspace_computation.csv')
-data = CSV_reader.parse_csv2('../../data/pricelist/rackspace_data.csv')
-storage = CSV_reader.parse_csv2('../../data/pricelist/rackspace_storage.csv')
+from os import path
+vms = CSV_reader.parse_csv2(path.join(path.dirname(__file__), 'pricelist', 'rackspace_computation.csv'))
+data = CSV_reader.parse_csv2(path.join(path.dirname(__file__), 'pricelist', 'rackspace_data.csv'))
+storage = CSV_reader.parse_csv2(path.join(path.dirname(__file__), 'pricelist', 'rackspace_storage.csv'))
 
 def get_storage_costs(dem_curve):
     """
