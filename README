@@ -4,7 +4,13 @@ Cloud cost calculator.
 === Overview ===
 
 Calculates storage, network and computational costs (using LP-model) for public clouds. 
-Supported clouds: AWS, Rackspace.
+Supported clouds: AWS, Rackspace. See src/tests for usage examples.
+
+=== Installation ==
+
+1. Get the code.
+2. Make sure you have PuLP-OR installed and working (http://code.google.com/p/pulp-or/). 
+3. python setup.py install 
 
 === License ===
 Copyright (c) 2011, HEP KBFI
