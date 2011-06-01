@@ -12,6 +12,10 @@ Supported clouds: AWS, Rackspace. See src/tests for usage examples.
 2. Make sure you have PuLP-OR installed and working (http://code.google.com/p/pulp-or/). 
 3. python setup.py install 
 
+OR 
+
+1. easy_install cloud-calculator
+
 === License ===
 Copyright (c) 2011, HEP KBFI
 All rights reserved.
