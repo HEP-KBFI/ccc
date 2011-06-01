@@ -1,0 +1,3 @@
+"data-storage-type";"1GB";"1mln requests"
+"ebs-volumes";0.11;0.11
+"s3-simple";0.15;0.01

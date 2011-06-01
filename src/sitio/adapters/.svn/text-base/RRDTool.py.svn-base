@@ -1,0 +1,61 @@
+import rrdtool
+import datetime
+import time
+#from pprint import pprint
+from common.utils import unix2date
+    
+def info(file_name):
+    """Returns the available data sources and their parameters"""
+    info = rrdtool.info(file_name)
+    info['first_update'] = rrdtool.first(file_name)
+    return info
+
+def calculate_periods(rrd_db_info):
+    """Calculates the optimal time periods for fetching the data"""    
+    loll = {}
+    for key,val in info.items():
+        if ('rra[' in key) and ('pdp_per_row' in key):
+            loll[key]= val        
+    #pprint(loll)
+    #pass
+
+def fetch(file_name, start_date, end_date, interval=300):
+    """Retrieves the data from the RRD database for a defined period with a defined precision"""
+    from common.utils import nonneg
+    raw = rrdtool.fetch(file_name, '-r', interval, '--start', start_date, '--end', end_date, 'AVERAGE')    
+    raw = zip(*raw[2])
+    #net_in, net_out = zip(*info[2])
+    
+    dat = [nonneg(x)/(1024*1024*1024)*float(interval) for x in raw[0]]
+    dat.pop(len(dat)-1)
+
+    #calculating dates
+    dates = [unix2date(x) for x in range(int(start_date), int(end_date), int(interval))]
+    data = [dat, dates]
+    return data 
+    
+def generator(filename):
+    import random
+    #rrdtool.create('net.rrd', '--start', '1230760500', 'DS:net:COUNTER:600:U:U', 
+        #'RRA:AVERAGE:0.5:1:105120', #for 5 minutes
+        #'RRA:AVERAGE:0.5:6:17520',  #for 30 minutes
+        #'RRA:AVERAGE:0.5:24:4380',  #for 2 hours
+        #'RRA:AVERAGE:0.5:288:365',  #for day
+        #'RRA:AVERAGE:0.5:8760:12')  #for month
+    print "generating RRD..."
+    rrdtool.create(
+        filename, '--start', '1230760500', 'DS:net:COUNTER:600:U:U', 
+        'RRA:AVERAGE:0.5:1:600', #rr archive for 5 minutes
+        'RRA:AVERAGE:0.5:6:600',  #rr archive for 30 minutes
+        'RRA:AVERAGE:0.5:24:600',  #rr archive for 2 hours
+        'RRA:AVERAGE:0.5:288:365',  #rr archive for a day
+        'RRA:AVERAGE:0.5:8760:12')  #rr archive for a month
+    
+    for i in range(1230760800, 1262296800, 300):    
+        rnd = random.randrange(100*1024) 
+        value = str(i) + ':' + str(rnd)
+        #print value + '------'
+        rrdtool.update(filename, str(value))
+    print "Done"
+    
+

@@ -1,0 +1,87 @@
+10
+
+dir
+117
+svn+ssh://neptune.hep.kbfi.ee/home/ilja/svnroot/sitio/trunk/src/sitio
+svn+ssh://neptune.hep.kbfi.ee/home/ilja/svnroot/sitio
+
+
+
+2011-05-10T09:56:57.699775Z
+117
+ilja
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4de8661c-e6f9-4473-b93b-eea325299a50
+
+
+
+
+
+
+0
+
+__init__.py
+file
+
+
+
+
+2011-05-01T20:33:22.563121Z
+d41d8cd98f00b204e9800998ecf8427e
+2011-05-02T18:01:06.104392Z
+109
+ilja
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+
+adapters
+dir
+
+analyser
+dir
+
+backend
+dir
+
+common
+dir
+
+model
+dir
+
+reporting
+dir
+

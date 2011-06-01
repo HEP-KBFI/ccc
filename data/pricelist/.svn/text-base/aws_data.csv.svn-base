@@ -1,0 +1,7 @@
+"data transfer";"1GB"
+"in";0.1
+"out-1GB";0
+"out-10TB";0.15
+"out-40TB";0.11
+"out-100TB";0.09
+"out-150TB";0.08
