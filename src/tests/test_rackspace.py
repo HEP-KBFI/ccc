@@ -1,5 +1,5 @@
 import unittest
-from test_utils import generate_random_usage
+from sitio.common.utils import generate_random_usage
 from sitio.analyser import rackspace 
 
 import random

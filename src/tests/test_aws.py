@@ -1,8 +1,8 @@
 import unittest
-from test_utils import generate_random_usage
 from sitio.analyser import aws 
 
 import random
+from sitio.common.utils import generate_random_usage
 
 class TestAWSCosts(unittest.TestCase):
 

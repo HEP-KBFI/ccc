@@ -121,9 +121,8 @@ def get_optimal_ec2(cpu_usage, mem_usage, optimal=True, debug=False):
     ## constraints on the reserved instances - cannot use more than we paid for
     for i in per_h_reserved:
         t = i.split(" ")[3]
-        prob += vars["res_1year %s" % t] + vars["res_3year %s" % t] >= vars[i], "Nr. of used reserved machines of type %s" %i
-    prob.writeLP("/tmp/tmp.lp")
-    prob.solve()  # for practical reasons don't wait too long   
+        prob += vars["res_1year %s" % t] + vars["res_3year %s" % t] >= vars[i], "Nr. of used reserved machines of type %s" %i    
+    prob.solve()   
     
     
     if debug:
