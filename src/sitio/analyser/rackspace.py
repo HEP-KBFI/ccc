@@ -3,8 +3,11 @@
 """
 
 from sitio.adapters import CSV_reader
-from pulp.pulp import LpProblem, LpVariable, lpSum, value
-from pulp.constants import LpMinimize, LpContinuous, LpInteger
+try:
+    from pulp.pulp import LpProblem, LpVariable, lpSum, value
+    from pulp.constants import LpMinimize, LpContinuous, LpInteger
+except ImportError:
+    print "Pulp-OR module not installed. get_optimal_rackspace function will not work."
 
 from os import path
 vms = CSV_reader.parse_csv2(path.join(path.dirname(__file__), 'pricelist', 'rackspace_computation.csv'))

@@ -3,8 +3,11 @@
 """
 
 from sitio.adapters import CSV_reader
-from pulp.pulp import LpProblem, LpVariable, lpSum, value
-from pulp.constants import LpMinimize, LpStatus, LpInteger, LpContinuous
+try:
+    from pulp.pulp import LpProblem, LpVariable, lpSum, value
+    from pulp.constants import LpMinimize, LpStatus, LpInteger, LpContinuous
+except ImportError:
+    print "Pulp-OR module not installed. get_optimal_ec2 function will not work."
 
 # node parameters [price, 1year, 3year, reserved_price, RAM, CU, disk]
 # <type>_<size>_<model>
