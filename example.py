@@ -1,6 +1,6 @@
 ''' Demonstrates usage of cloud-calculator library. '''
 
-# Our goal is to calculate We start by getting usage statistics. This can be 
+# We start by getting usage statistics. This can be 
 # either simulated or acquired from one of the monitoring solutions 
 # (e.g. Ganglia, Zabbix or collectd). 
 
